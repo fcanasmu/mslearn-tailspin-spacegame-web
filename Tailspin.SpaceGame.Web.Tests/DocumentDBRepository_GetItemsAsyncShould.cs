@@ -29,7 +29,6 @@ namespace Tests
         [TestCase("Pinwheel")]
         [TestCase("NGC 1300")]
         [TestCase("Messier 82")]
-        [TestCase(null)]
         public void FetchOnlyRequestedGameRegion(string gameRegion)
         {
             const int PAGE = 0; // take the first page of results
@@ -49,7 +48,7 @@ namespace Tests
             IEnumerable<Score> scores = scoresTask.Result;
 
             // Verify that each score's game region matches the provided game region.
-            Assert.That(scores, Is.All.Matches<Score>(score => score.GameRegion == gameRegion + "."));
+            Assert.That(scores, Is.All.Matches<Score>(score => score.GameRegion == gameRegion));
         }
     }
 }
