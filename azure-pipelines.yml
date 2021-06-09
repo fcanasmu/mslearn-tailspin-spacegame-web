@@ -15,6 +15,7 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: CmdLine@2
+- task: DotNetCoreCLI@2
   inputs:
-    script: donet build --configuration $(buildConfiguration)
+    command: 'build'
+    arguments: '--configuration $(buildConfiguration)'
